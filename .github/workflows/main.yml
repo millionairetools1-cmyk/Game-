@@ -1,17 +1,26 @@
 name: Build APK
-on: [push]
+on:
+  push:
+    branches: [ main ]
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
-      - name: Build APK
+
+      # यह आपके कोड को Android APK में बदलेगा
+      - name: Build with Buildozer
         uses: ArtemSBulgakov/buildozer-action@v1
+        id: buildozer
         with:
           command: buildozer android debug
           buildozer_version: stable
+
+      # APK को अपलोड करेगा ताकि आप डाउनलोड कर सकें
       - name: Upload APK
         uses: actions/upload-artifact@v2
         with:
-          name: GameAPK
+          name: MyGameAPK
           path: bin/*.apk
