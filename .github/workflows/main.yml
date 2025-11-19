@@ -5,15 +5,16 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    # यहाँ हमने 'latest' की जगह '20.04' कर दिया है
+    # यह उस "User Error" को पूरी तरह खत्म कर देगा
+    runs-on: ubuntu-20.04
 
     steps:
       - uses: actions/checkout@v4
 
-      # यहाँ हमने पुराने टूल को हटाकर नया 'HeaTTheatR' वाला लगाया है
-      # यह 'Invalid User' वाली प्रॉब्लम को फिक्स कर देगा
+      # हम वापस पुराने और भरोसेमंद टूल का ही इस्तेमाल करेंगे
       - name: Build with Buildozer
-        uses: HeaTTheatR/buildozer-action@v1
+        uses: ArtemSBulgakov/buildozer-action@v1
         id: buildozer
         with:
           command: buildozer android debug
