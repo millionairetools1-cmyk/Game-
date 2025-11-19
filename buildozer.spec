@@ -1,9 +1,9 @@
 [app]
 title = My Game
 package.name = mygame
-package.domain = org.test
+package.domain = org.mygame
 source.dir = .
-source.include_exts = py,png,jpg,mp3,wav
+source.include_exts = py,png,jpg,kv,atlas,mp3,wav
 version = 0.1
 requirements = python3,pygame
 orientation = landscape
