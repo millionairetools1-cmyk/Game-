@@ -8,18 +8,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # चेकआउट टूल को v4 (नया) कर दिया है
       - uses: actions/checkout@v4
 
-      # यह गेम बनाने वाला टूल है
+      # यहाँ हमने पुराने टूल को हटाकर नया 'HeaTTheatR' वाला लगाया है
+      # यह 'Invalid User' वाली प्रॉब्लम को फिक्स कर देगा
       - name: Build with Buildozer
-        uses: ArtemSBulgakov/buildozer-action@v1
+        uses: HeaTTheatR/buildozer-action@v1
         id: buildozer
         with:
           command: buildozer android debug
           buildozer_version: stable
 
-      # गलती यहाँ थी (v2), इसे v4 कर दिया है
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
